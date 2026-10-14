@@ -4,10 +4,10 @@ export const contactInfo = {
   whatsappNumber: "+8801521546784", // used only inside the wa.me link, never shown as text
   resumeUrl:
     "https://drive.google.com/uc?export=download&id=1M29GUzmQocybWxvXAut9cW7z55Vnu2so",
-  designation: "Full-Stack Software Engineer",
+  designation: "Full-Stack Developer",
   rotatingTitles: [
-    "MERN Stack Developer",
-    "Next.js & TypeScript Developer",
+    "React & Next.js Developer",
+    "TypeScript & Node.js Developer",
     "AI-Integrated Web Apps",
   ],
 };

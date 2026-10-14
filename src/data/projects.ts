@@ -1,4 +1,7 @@
 import type { Project } from "../types";
+import sports from "../assets/project_img/sports.png";
+import agencyops from "../assets/project_img/agencyops-profile.png";
+import gearup from "../assets/project_img/gearup-profile.png";
 
 // Tip: for a project that has separate frontend and backend repos, add
 // `githubServerUrl: "https://github.com/you/project-server"` alongside
@@ -6,27 +9,53 @@ import type { Project } from "../types";
 // ("Frontend Repo" / "Backend Repo") instead of one.
 
 export const projects: Project[] = [
-  // {
-  //   id: "devpulse",
-  //   name: "DevPulse",
-  //   tagline: "Internal tech issue tracker with role-based access control",
-  //   image: "",
-  //   techStack: ["Node.js", "TypeScript", "Express.js", "PostgreSQL", "JWT"],
-  //   description:
-  //     "DevPulse is a backend-focused issue-tracking system built for internal engineering teams to log, assign, and resolve technical issues. It uses the raw 'pg' driver (no ORM) for direct control over queries, JWT-based authentication, and role-based access control so that admins, managers, and reporters each see only what they need.",
-  //   liveUrl: "#",
-  //   githubClientUrl: "#",
-  //   challenges:
-  //     "Designing a clean relational schema without an ORM meant writing and maintaining raw SQL queries by hand, which made it easy to introduce subtle bugs around joins and transactions. Getting role-based permissions right — so that each role could only access and modify the correct resources — also required careful middleware design and thorough testing of edge cases.",
-  //   improvements:
-  //     "Planned improvements include adding a notification system for issue status changes, introducing an ORM layer (Prisma) for safer query building, adding automated tests for the permission middleware, and building an analytics dashboard to track issue resolution time.",
-  //   featured: true,
-  // },
+  {
+    id: "agencyops",
+    name: "AgencyOps",
+    tagline: "A SaaS platform for managing software agencies",
+    image: agencyops,
+    techStack: ["Next.js", "TypeScript", "Express.js", "PostgreSQL", "Prisma"],
+    description:
+      "A multi-tenant SaaS platform for managing agency teams, projects, tasks, clients, and invoices. It features role-based access control, team collaboration, a dedicated client portal, and secure authentication, with a responsive interface designed to streamline agency workflows.",
+    liveUrl: "https://agencyops-frontend.vercel.app/",
+    githubClientUrl: "https://github.com/zesanahmed/agencyops-frontend",
+    githubServerUrl: "https://github.com/zesanahmed/agencyops-api",
+    challenges:
+      "Designing a secure multi-tenant architecture with strict organization-level data isolation, role-based permissions, and a separate authentication boundary for client users required careful API design and consistent access-control checks.",
+    improvements:
+      "Future plans include completing Stripe payment integration, adding AI-powered assistance for agency workflows, and expanding automated testing, monitoring, and reporting capabilities.",
+  },
+  {
+    id: "gearup",
+    name: "GearUp",
+    tagline: "Rent sports & outdoor gear instantly",
+    image: gearup,
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "TanStack Query",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Prisma",
+      "Stripe",
+    ],
+    description:
+      "A full-stack rental platform where customers browse gear, book it for a date range, and pay through Stripe Checkout. Providers manage their inventory and move orders through confirmation, pickup, and return, while admins moderate users and listings. The UI and route access adapt to each of the three roles.",
+    liveUrl: "https://<your-frontend-domain>.vercel.app",
+    githubClientUrl: "https://github.com/zesanahmed/gearup-frontend",
+    githubServerUrl: "https://github.com/zesanahmed/gearupA4",
+    challenges:
+      "Next.js Middleware can only read cookies, not localStorage, so protecting role-based routes with a JWT needed a backend-for-frontend layer. I added Next.js API routes that call the real backend and store the token in an httpOnly cookie, then verify it with jose inside Middleware.",
+    improvements:
+      "Future plans include SSLCommerz support for BDT payments, real image uploads instead of URLs, server-side pagination for the admin panel, and split orders so one cart can include gear from multiple providers.",
+  },
   {
     id: "sports-genius-hub",
     name: "Sports Genius Hub",
     tagline: "A learning platform for sports enthusiasts",
-    image: "https://i.ibb.co/XJyK7GM/sports-genius-hub-web-app.png",
+    image: sports,
     techStack: ["React", "Node.js", "Express.js", "MongoDB"],
     description:
       "A full-stack platform where users can browse and enroll in sports-related courses. It includes user authentication, course management, and an admin dashboard for managing content, with a responsive interface designed for both learners and administrators.",
